@@ -1,0 +1,9 @@
+name: Alumni Osuny Theme
+license: MIT
+licenselink: 'https://github.com/osunyorg/osuny-alumni-theme/blob/main/LICENSE'
+description: Alumni theme for Osuny theme website
+homepage: 'https://www.osuny.org'
+min_version: 0.1.0
+author:
+  name: noesya
+  homepage: 'https://www.noesya.coop'
