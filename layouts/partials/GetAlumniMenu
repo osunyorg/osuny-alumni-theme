@@ -1,0 +1,29 @@
+# Get Primary Menu
+{{ $primary := partial "GetMenu" "primary" }}
+
+# Generate Academic Years submenu
+{{ $menu_years := partial "GetAcademicYearsMenu" }}
+
+# Generate menu items
+{{ $items := slice }}
+{{ range $index, $item := $primary.items }}
+  {{ if eq $index 0 }}
+    {{ $item = merge $item (dict "children" $menu_years) }}
+  {{ end }}
+
+  {{ $items = $items | append $item }}
+{{ end }}
+
+# Generate base menu options
+{{ $menu := (dict
+    "dropdown" true
+    "level" 1
+    "options" site.Params.menu.primary
+    "context" .
+  )
+}}
+
+{{ $primary = merge $primary (dict "items" $items) }}
+{{ $menu = merge $menu $primary }}
+
+{{ return $menu }}

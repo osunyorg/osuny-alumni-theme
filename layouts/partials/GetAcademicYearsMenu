@@ -1,0 +1,18 @@
+
+# Get Academic Years
+{{ $academic_years_index := site.GetPage "academic_years" }}
+{{ $academic_years := $academic_years_index.Pages }}
+
+{{ $menu := slice }}
+
+{{ range $academic_years }}
+  {{ $menu = $menu | append (dict
+      "title" .Title
+      "kind" "page"
+      "target" .Permalink
+      "path" .Path
+      "children" slice
+    ) }}
+{{ end }}
+
+{{ return $menu }}
