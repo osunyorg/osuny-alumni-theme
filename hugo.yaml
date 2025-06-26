@@ -1,0 +1,4 @@
+params:
+  programs:
+    share_links:
+      enabled: false

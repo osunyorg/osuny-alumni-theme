@@ -1,0 +1,8 @@
+{{ $context := .context }}
+{{ $persons := .persons }}
+
+<div class="alumni">
+  <div class="container">
+    {{ partial "persons/partials/list.html" $persons }}
+  </div>
+</div>

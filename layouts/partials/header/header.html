@@ -1,6 +1,7 @@
 {{ $primary := partial "GetMenu" "primary" }}
 {{ $upper_menu := partial "GetMenu" "upper-menu" }}
 {{ $alumni_menu := partial "GetAlumniMenu" . }}
+
 <header id="document-header" role="banner"
   {{ if $upper_menu.items }}
     class="has-upper-menu"

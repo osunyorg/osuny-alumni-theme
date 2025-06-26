@@ -1,0 +1,24 @@
+{{ define "main" }}
+  {{ partial "home/hero.html" . }}
+
+  <div class="document-content">
+    {{- if not $.Site.Params.home.toc.disabled -}}
+      {{ partial "toc/container.html"
+          (dict
+              "toc" "toc/default.html"
+              "context" .
+          )
+      }}
+    {{- end -}}
+
+    {{ partial "home/summary.html" (dict
+        "block_wrapped" true
+        "context" .
+      ) }}
+
+    {{ if .Params.contents }}
+      {{ partial "contents/list.html" . }}
+      {{ partial "alumni/list.html" . }}
+    {{ end }}
+  </div>
+{{ end }}
