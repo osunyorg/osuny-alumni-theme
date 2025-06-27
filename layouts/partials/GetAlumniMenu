@@ -1,8 +1,11 @@
 # Get Primary Menu
 {{ $primary := partial "GetMenu" "primary" }}
 
-# Generate Academic Years submenu
+# Get Academic Years submenu
 {{ $menu_years := partial "GetAcademicYearsMenu" }}
+
+# Get Programse submenu
+{{ $menu_programs := partial "GetProgramsMenu" }}
 
 # Generate menu items
 {{ $items := slice }}
@@ -10,7 +13,9 @@
   {{ if eq $index 0 }}
     {{ $item = merge $item (dict "children" $menu_years) }}
   {{ end }}
-
+  {{ if eq $index 1 }}
+    {{ $item = merge $item (dict "children" $menu_programs) }}
+  {{ end }}
   {{ $items = $items | append $item }}
 {{ end }}
 
